@@ -1,20 +1,28 @@
 # Stifle
 
-**TODO: Add description**
+Stifle is a library for suppressing side-effects (raises, exits, etc)
+in Elixir functions, allowing the developer to replay side effects
+in the current process or inspect the effect/return value safely.
 
-## Installation
+## Example
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+```elixir
+iex> raise_hell_fn = fn -> raise "hell" end
+iex> stifled_fn = Stifle.stifle(raise_hell_fn)
+iex> stifled_return_value = stifled_fn.() # => {:error, %RuntimeError{message: "hell"}, [...]}
+iex> Stifle.unstifle(stifled_return_value)
+** (RuntimeError) hell
+```
 
-  1. Add stifle to your list of dependencies in `mix.exs`:
+## [Full Documentation](https://hexdocs.pm/stifle/Stifle.html)
 
-        def deps do
-          [{:stifle, "~> 0.0.1"}]
-        end
+Full documentation is [available on
+hexdocs.pm](https://hexdocs.pm/stifle/Stifle.html).
 
-  2. Ensure stifle is started before your application:
 
-        def application do
-          [applications: [:stifle]]
-        end
+## Authorship and License
+
+Stifle is copyright 2016 Appcues, Inc.
+
+Stifle is released under the [MIT License](LICENSE.txt).
 
