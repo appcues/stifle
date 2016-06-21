@@ -1,6 +1,6 @@
 # Stifle
 
-Stifle is a library for suppressing side-effects (raises, exits, etc)
+Stifle is a library for suppressing side-effects (exits, raises, throws)
 in Elixir functions, allowing the developer to replay side effects
 in the current process or inspect the effect/return value safely.
 
