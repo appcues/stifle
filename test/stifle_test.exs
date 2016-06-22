@@ -55,6 +55,12 @@ defmodule StifleTest do
         t -> assert("throw_fn" == t)
       end
     end
+
+    it "raises on bad input" do
+      assert_raise RuntimeError, ~r/^invalid input to unstifle/, fn ->
+        unstifle(22)
+      end
+    end
   end
 end
 

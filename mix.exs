@@ -9,6 +9,8 @@ defmodule Stifle.Mixfile do
      package: package,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     test_coverage: [tool: ExCoveralls],
+     preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
      deps: deps]
   end
 
@@ -35,6 +37,7 @@ defmodule Stifle.Mixfile do
   defp deps do
     [
       {:ex_spec, "~> 1.1.0", only: :test},
+      {:excoveralls, "~> 0.5", only: :test},
       {:ex_doc, "~> 0.11.0", only: :dev},
     ]
   end
