@@ -37,7 +37,7 @@ defmodule Stifle.Mixfile do
   defp deps do
     [
       {:ex_spec, "~> 1.1.0", only: :test},
-      {:excoveralls, "~> 0.5", only: :test},
+      {:excoveralls, "~> 0.18", only: :test},
       {:ex_doc, "~> 0.11.0", only: :dev},
     ]
   end
